@@ -158,6 +158,9 @@ std::cout &lt;&lt; numbers_3[2];
 </code></pre>
 								</section>
 
+                <!-- article specific -->
+                <div class="gh-comments"></div>
+
 							</article>
 					</div>
 
@@ -177,6 +180,48 @@ std::cout &lt;&lt; numbers_3[2];
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
+
+      <script type="text/javascript">
+        (function (gh_issue_id){
+          var gh_comments = document.getElementsByClassName('gh-comments')[0];
+          var gh_api = 'https://api.github.com/repos/d-ampersand-q/d-ampersand-q.github.io/issues';
+          var gh_issue_url = 'https://github.com/d-ampersand-q/d-ampersand-q.github.io/issues/' + gh_issue_id;
+          var gh_comments_url = gh_api + '/' + gh_issue_id + '/comments';
+          fetch(gh_comments_url, {
+            headers: new Headers({
+              'Accept': 'application/vnd.github.v3.html+json',
+              'Content-Type': 'application/json'
+            }),
+            method: 'GET'
+          }).then((res) => {
+            if (res.status == 200) return res.json();
+            let error = new Error('HTTP Exception[GET]');
+            error.status = res.status;
+            error.statusText = res.statusText;
+            error.url = res.url;
+            throw error;
+          }).then((json) => {
+              gh_comments.insertAdjacentHTML('afterbegin', `<h2 class="major">GitHub评论</h3>
+                <p>请访问<a href="${gh_issue_url}">GitHub Issue</a>评论此文.</p>`);
+      
+              for (let comment of json) {
+                let date = new Date(comment.created_at);
+                let c = '<div class="gh-comment">' +
+                    `<h3 class="major"><img src="${comment.user.avatar_url}" width="24px"> ` +
+                    `<a href="${comment.user.html_url}">${comment.user.login}</a>` +
+                    '发表于' +
+                    `${date.toLocaleDateString()}` + ' ' + `${date.toLocaleTimeString()}</h3>` +
+                    comment.body_html +
+                    '</div>' + 
+                    '<hr>';
+                gh_comments.insertAdjacentHTML('beforeend', c);
+              }
+          }).catch((err) => {
+            gh_comments.insertAdjacentHTML('afterbegin', `<h3>GitHub Comments</h3>
+              <p>Comments are not open for this post yet</p>`);
+          });
+        })(1);
+      </script>
 
 	</body>
 </html>
