@@ -1,1 +1,0 @@
-# d-ampersand-q.github.io

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>编译时初始化数组</title> <!-- article specific -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+                <!-- article specific -->
+								<h1>编译时初始化数组</h1>
+								<p>在编译时决定一个数组的初始值，而非运行时。<br /></p>
+
+                <!-- article specific -->
+                <!-- blog specific -->
+                <p>相关主题：<a href="../index.html#topics">C++</a></p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+                <!-- article specific -->
+								<li><a href="#content">编译时初始化数组</a></li>
+
+                <!-- blog specific -->
+								<li><a href="../index.html">回到主页</a></li>
+								<li><a href="../index.html#intro">回到主页：简介</a></li>
+								<li><a href="../index.html#blogs">回到主页：博客</a></li>
+								<li><a href="../index.html#topics">回到主页：主题</a></li>
+								<li><a href="../index.html#about">回到主页：关于</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<article id="content">
+								<h2 class="major">编译时初始化数组</h2>
+
+								<span class="image main"><img src="../images/pic02.jpg" alt="" /></span>
+
+								<section>
+									<h3 class="major">背景</h3>
+									<p>今天面试实习生时，发现对方答题时写了如下的代码：
+									<pre><code>int something[10] = {0};</code></pre>
+                  询问之后，果然是想把一个数组的所有元素初始化为0。C码农应该很容易看到问题在哪里。但是现在大学里似乎有很多人是直接学C++，所以会有这样的误解。<br />
+                  看到这段代码后，想到了另一个不同但有点关系的问题：怎么样得到一个编译时的常量数组，并且每个元素都是0？如果需要初始化成任意指定的值又该怎么做？
+
+									<h4>目标</h4>
+									<ul class="alt">
+										<li>基础目标：把一个数组的所有元素初始化为0</li>
+										<li>进阶目标：把一个数组的所有元素初始化为1，2，3，4 ...</li>
+										<li>终极目标：把一个数组的所有元素初始化为一个函数<i>f(n)</i>的输出结果，其中n代表数组中的第n个元素</li>
+									</ul>
+
+                  以上都希望是一个编译时的数组。
+									<hr />
+								</section>
+
+								<section>
+									<h3 class="major">基础目标</h3>
+
+									<pre><code>template &lt;typename T, std::size_t... Ints&gt;
+struct compile_time_array_1
+{
+  static constexpr T array[] = { (Ints, 0)... };
+};
+
+// Note
+// template &lt;typename T, std::size_t... Ints&gt;
+// constexpr T compile_time_array_1&lt;T, Ints...&gt;::array[];
+
+template &lt;typename T, std::size_t... Ints&gt;
+constexpr compile_time_array_1&lt;T, Ints...&gt; get_compile_time_array_1(std::index_sequence&lt;Ints...&gt;)
+{
+  return compile_time_array_1&lt;T, Ints...&gt;{};
+}
+</code></pre>
+
+                  下面这段代码输出的是0。<br />
+                  注意前一段代码中注释的部分：link没有报错，说明最终的程序的确没有用到array的地址。如果把下面的代码改成一个输出数组所有元素的循环，link就会报错，因为我用的编译器不能在编译时遍历一个数组。即使这个数组是一个编译时常量也不行。<br />
+                  顺便提一下，如果编译器优化没有打开，link也可能报错，因为编译器没有把这个数组转化成常量。
+                  <pre><code>auto numbers_1 = get_compile_time_array_1&lt;int&gt;(std::make_index_sequence&lt;10&gt;()).array;
+std::cout &lt;&lt; numbers_1[2];
+</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">进阶目标</h3>
+
+									<pre><code>template &lt;typename T, std::size_t... Ints&gt;
+struct compile_time_array_2
+{
+  static constexpr T array[] = { Ints... };
+};
+
+// Note
+// template &lt;typename T, std::size_t... Ints&gt;
+// constexpr T compile_time_array_2&lt;T, Ints...&gt;::array[];
+
+template &lt;typename T, std::size_t... Ints&gt;
+constexpr compile_time_array_2&lt;T, Ints...&gt; get_compile_time_array_2(std::index_sequence&lt;Ints...&gt;)
+{
+  return compile_time_array_2&lt;T, Ints...&gt;{};
+}
+</code></pre>
+
+                 下面这段代码输出的是2。前一段代码中注释的部分的含义与前一节相同。
+                 <pre><code>auto numbers_2 = get_compile_time_array_2&lt;int&gt;(std::make_index_sequence&lt;10&gt;()).array;
+std::cout &lt;&lt; numbers_2[2];
+</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">终极目标</h3>
+
+									<pre><code>template &lt;typename T, typename F, std::size_t... Ints&gt;
+struct compile_time_array_3
+{
+  static constexpr T array[] = { F{}(Ints)... };
+};
+
+// Note
+// template &lt;typename T, typename F, std::size_t... Ints&gt;
+// constexpr T compile_time_array_3&lt;T, F, Ints...&gt;::array[];
+
+template &lt;typename T, typename F, std::size_t... Ints&gt;
+constexpr compile_time_array_3&lt;T, F, Ints...&gt; get_compile_time_array_3(std::index_sequence&lt;Ints...&gt;)
+{
+  return compile_time_array_3&lt;T, F, Ints...&gt;{};
+}
+</code></pre>
+
+                 下面这段代码输出的是4。前一段代码中注释的部分的含义与前一节相同。
+                 <pre><code>  struct f
+  {
+    constexpr std::size_t operator() (std::size_t index)
+    {
+      return 2 * index;
+    }
+  };
+
+auto numbers_3 = get_compile_time_array_3&lt;int, f&gt;(std::make_index_sequence&lt;10&gt;()).array;
+std::cout &lt;&lt; numbers_3[2];
+</code></pre>
+								</section>
+
+							</article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; D &amp; Q 出品</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
