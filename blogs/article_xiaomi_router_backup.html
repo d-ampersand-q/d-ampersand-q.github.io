@@ -1,175 +1,209 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>手动备份小米路由器硬盘</title> <!-- article specific -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>手动备份小米路由器硬盘</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Wrapper -->
+      <div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-                <!-- article specific -->
-								<h1>手动备份小米路由器硬盘</h1>
-								<p>当小米路由器硬盘损坏后，恢复损坏的硬盘或者切换到另一块硬盘<br /></p>
+        <!-- Header -->
+          <header id="header">
+            <div class="logo">
+              <span class="icon fa-gem"></span>
+            </div>
+            <div class="content">
+              <div class="inner">
+                <h1>手动备份小米路由器硬盘</h1>
+                <p>当小米路由器硬盘损坏后，恢复损坏的硬盘或者切换到另一块硬盘<br /></p>
+                <p>相关主题：<a href="../index.html#topics">IT</a></p>
+              </div>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="#content">手动备份小米路由器硬盘</a></li>
+                <li><a href="../index.html">回到主页</a></li>
+                <li><a href="../index.html#intro">回到主页：简介</a></li>
+                <li><a href="../index.html#blogs">回到主页：博客</a></li>
+                <li><a href="../index.html#topics">回到主页：主题</a></li>
+                <li><a href="../index.html#about">回到主页：关于</a></li>
+              </ul>
+            </nav>
+          </header>
 
-                <!-- article specific -->
-                <!-- blog specific -->
-                <p>相关主题：<a href="../index.html#topics">it</a></p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-                <!-- article specific -->
-								<li><a href="#content">手动备份小米路由器硬盘</a></li>
+        <!-- Main -->
+          <div id="main">
 
-                <!-- blog specific -->
-								<li><a href="../index.html">回到主页</a></li>
-								<li><a href="../index.html#intro">回到主页：简介</a></li>
-								<li><a href="../index.html#blogs">回到主页：博客</a></li>
-								<li><a href="../index.html#topics">回到主页：主题</a></li>
-								<li><a href="../index.html#about">回到主页：关于</a></li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Content -->
-							<article id="content">
-								<h2 class="major">手动备份小米路由器硬盘</h2>
-
-								<span class="image main"><img src="../images/pic02.jpg" alt="" /></span>
-
-								<section>
-									<h3 class="major">背景</h3>
-									<p>我的路由器是第一代的R1D，所以本文的内容可能<strong>不适合其它型号的小米路由器</strong>。<br /><br />
+            <!-- Content -->
+              <article id="content">
+                <h2 class="major">手动备份小米路由器硬盘</h2>
+                <span class="image main"><img src="../images/pic02.jpg" alt="" /></span>
+                <section>
+                  <h3 class="major">背景</h3>
+                  我的路由器是第一代的R1D，所以本文的内容可能<strong>不适合其它型号的小米路由器</strong>。<br /><br />
                   不知道是不是设计问题，小米路由器的硬盘特别容易损坏。才几年，我这个已经搞坏了两块硬盘了。当然，第二块硬盘是叠瓦磁的，所以可能不能怪小米。硬盘坏了之后，比较头疼的问题有几个：
-
-									<ul class="alt">
-										<li>找一块硬盘再重新刷机比较费时</li>
-										<li>刷机完后，还要重新调各种设置</li>
-										<li>不知道是不是人品问题，路由器自带的设置备份在我这里不能正常工作</li>
-									</ul>
-
-									<h4>目标</h4>
-									正好家里有好几块废旧硬盘，如果可以废物利用，就解决以上的问题了。希望把一两块旧硬盘预先刷成小米的路由器硬盘。这样出问题了就可以直接替换。而且设置跟刷硬盘时候的设置完全一样。虽然原装的硬盘是1T的，但因为废旧硬盘都比较小，所以希望几十G、一百来G的旧硬盘也可以工作。<br />
-                  这样还有一个好处：1T的新硬盘可以当优盘在需要时连接到路由器上。不需要一直在线。兼顾存储空间和硬盘寿命。</p>
-									<hr />
-								</section>
-
-								<section>
-									<h3 class="major">前提条件</h3>
-									<p>
-									  <ul>
-									  	<li>2.5寸的移动硬盘盒</li>
-                        <ul>
-									  	    <li>注意：<strong>其它型号的小米路由器可能用台式机硬盘，不是2.5寸</strong></li>
-                        </ul>
-									  	<li>装了linux系统的机器，并安装分区工具gparted</li>
-                        <ul>
-									  	    <li>或者能连接物理优盘的虚拟机上安装linux和分区工具</li>
-                        </ul>
-									  	<li>小米路由器的硬盘能够拆下。注意：<strong>拆硬盘后，保修会出问题。所以操作之前先确认可以接受</strong></li>
-									  	<li>废旧硬盘。几十G以上就完全没有问题</li>
-									  </ul>
-                  </p>
-								</section>
-
-								<section>
-									<h3 class="major">小米路由器硬盘的分区结构</h3>
-									<p>把旧硬盘装进移动硬盘盒后，连接到电脑上。连接完成后，查看/dev/下该硬盘对应的文件名。比如，在我的系统上，加载后，旧硬盘的文件名是/dev/sdd。以后都假设硬盘文件名是sdd。<br />
+                  <br />
+                  <ul class="alt">
+                    <li>找一块硬盘再重新刷机比较费时</li>
+                    <li>刷机完后，还要重新调各种设置</li>
+                    <li>不知道是不是人品问题，路由器自带的设置备份在我这里不能正常工作</li>
+                  </ul>
+                  
+                  <h4>目标</h4>
+                  正好家里有好几块废旧硬盘，如果可以废物利用，就解决以上的问题了。希望把一两块旧硬盘预先刷成小米的路由器硬盘。这样出问题了就可以直接替换。而且设置跟刷硬盘时候的设置完全一样。虽然原装的硬盘是1T的，但因为废旧硬盘都比较小，所以希望几十G、一百来G的旧硬盘也可以工作。
+                  <br />
+                  这样还有一个好处：1T的新硬盘可以当优盘在需要时连接到路由器上。不需要一直在线。兼顾存储空间和硬盘寿命。
+                </section>
+                <hr />
+                <section>
+                  <h3 class="major">前提条件</h3>
+                  
+                  <ul>
+                    <li>2.5寸的移动硬盘盒</li>
+                      <ul>
+                        <li>注意：<strong>其它型号的小米路由器可能用台式机硬盘，不是2.5寸</strong></li>
+                      </ul>
+                    <li>装了linux系统的机器，并安装分区工具gparted</li>
+                      <ul>
+                        <li>或者能连接物理优盘的虚拟机上安装linux和分区工具</li>
+                      </ul>
+                    <li>小米路由器的硬盘能够拆下。注意：<strong>拆硬盘后，保修会出问题。所以操作之前先确认可以接受</strong></li>
+                    <li>废旧硬盘。几十G以上就完全没有问题</li>
+                  </ul>
+                </section>
+                <hr />
+                <section>
+                  <h3 class="major">小米路由器硬盘的分区结构</h3>
+                  
+                  把旧硬盘装进移动硬盘盒后，连接到电脑上。连接完成后，查看/dev/下该硬盘对应的文件名。比如，在我的系统上，加载后，旧硬盘的文件名是/dev/sdd。以后都假设硬盘文件名是sdd。<br />
                   在gparted中，将sdd按照以下方式分区。分区前最好检查一下现有路由器硬盘的分区结构是否和下表一致。<br />
-									  <div class="table-wrapper">
-									  	<table>
-									  		<thead>
-									  			<tr>
-									  				<th>分区号</th>
-									  				<th>大小</th>
-									  				<th>文件系统格式</th>
-									  			</tr>
-									  		</thead>
-									  		<tbody>
-									  			<tr>
-									  				<td>一</td>
-									  				<td>132M</td>
-									  				<td>ext4</td>
-									  			</tr>
-									  			<tr>
-									  				<td>二</td>
-									  				<td>132M</td>
-									  				<td>ext4</td>
-									  			</tr>
-									  			<tr>
-									  				<td>三</td>
-									  				<td>264M</td>
-									  				<td>ext4</td>
-									  			</tr>
-									  			<tr>
-									  				<td>四</td>
-									  				<td>剩下的所有磁盘空间</td>
-									  				<td>ext4</td>
-									  			</tr>
-									  		</tbody>
-									  	</table>
-									  </div>
-                  </p>
-								</section>
-
-								<section>
-									<h3 class="major">备份</h3>
-									<p>卸载旧硬盘，将路由器硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令备份前三个分区。第四个分区的大小不固定，而且不是系统盘，所以可以直接cp来备份到一个目录。
-									<pre><code>sudo dd if=/dev/sdd1 of=~/xiaomi_disk_part1.bak
-sudo dd if=/dev/sdd2 of=~/xiaomi_disk_part2.bak
-sudo dd if=/dev/sdd3 of=~/xiaomi_disk_part3.bak</code></pre>
-                  </p>
-								</section>
-
-								<section>
-									<h3 class="major">刷硬盘</h3>
-									<p>卸载路由器硬盘，将之前分好区的旧硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令刷前三个分区。第四个分区可以直接cp拷贝之前备份的内容即可。
-									<pre><code>sudo dd if=~/xiaomi_disk_part1.bak of=/dev/sdd1
+                  <div class="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>分区号</th>
+                          <th>大小</th>
+                          <th>文件系统格式</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>一</td>
+                          <td>132M</td>
+                          <td>ext4</td>
+                        </tr>
+                        <tr>
+                          <td>二</td>
+                          <td>132M</td>
+                          <td>ext4</td>
+                        </tr>
+                        <tr>
+                          <td>三</td>
+                          <td>264M</td>
+                          <td>ext4</td>
+                        </tr>
+                        <tr>
+                          <td>四</td>
+                          <td>剩下的所有磁盘空间</td>
+                          <td>ext4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <hr />
+                <section>
+                  <h3 class="major">备份</h3>
+                  
+                  卸载旧硬盘，将路由器硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令备份前三个分区。第四个分区的大小不固定，而且不是系统盘，所以可以直接cp来备份到一个目录。
+<pre><code>
+sudo dd if=/dev/sdd1 of=~/xiaomi_disk_part1.bak
+d2 of=~/xiaomi_disk_part2.bak
+d3 of=~/xiaomi_disk_part3.bak
+</code></pre>
+                </section>
+                <hr />
+                <section>
+                  <h3 class="major">刷硬盘</h3>
+                  
+                  卸载路由器硬盘，将之前分好区的旧硬盘装进硬盘盒，并加载到计算机上。假设对应文件名还是sdd。这时可以用如下几条命令刷前三个分区。第四个分区可以直接cp拷贝之前备份的内容即可。
+<pre><code>
+sudo dd if=~/xiaomi_disk_part1.bak of=/dev/sdd1
 sudo dd if=~/xiaomi_disk_part2.bak of=/dev/sdd2
-sudo dd if=~/xiaomi_disk_part3.bak of=/dev/sdd3</code></pre>
-                  以上备份的内容可以继续用来刷下一块旧硬盘。所以可以保留下来，以后继续使用。</p>
-								</section>
+sudo dd if=~/xiaomi_disk_part3.bak of=/dev/sdd3
+</code></pre>
+                  以上备份的内容可以继续用来刷下一块旧硬盘。所以可以保留下来，以后继续使用。
+                </section>
+                <hr />
+                <section>
+                  <h3 class="major">测试</h3>
+                  
+                  断电状态下，用刷好的旧硬盘代替原先的路由器硬盘，插入路由器。通电后，路由器初始化完成，亮蓝灯。网络共享的硬盘第四分区一切正常，只是显示的空余空间比之前要小很多。因为替换的硬盘只有几十G。一切正常。
+                </section>
+                <hr />
+                <div class="gh-comments"></div>
+              </article>
+          </div>
+        <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">&copy; D &amp; Q 出品</p>
+          </footer>
+      </div>
+    <!-- BG -->
+      <div id="bg"></div>
+    <!-- Scripts -->
+      <script src="../assets/js/jquery.min.js"></script>
+      <script src="../assets/js/browser.min.js"></script>
+      <script src="../assets/js/breakpoints.min.js"></script>
+      <script src="../assets/js/util.js"></script>
+      <script src="../assets/js/main.js"></script>
 
-								<section>
-									<h3 class="major">测试</h3>
-									<p>断电状态下，用刷好的旧硬盘代替原先的路由器硬盘，插入路由器。通电后，路由器初始化完成，亮蓝灯。网络共享的硬盘第四分区一切正常，只是显示的空余空间比之前要小很多。因为替换的硬盘只有几十G。一切正常。</p>
-									<hr />
-								</section>
+      <script type="text/javascript">
+        (function (gh_issue_id){
+          var gh_comments = document.getElementsByClassName('gh-comments')[0];
+          var gh_api = 'https://api.github.com/repos/d-ampersand-q/d-ampersand-q.github.io/issues';
+          var gh_issue_url = 'https://github.com/d-ampersand-q/d-ampersand-q.github.io/issues/' + gh_issue_id;
+          var gh_comments_url = gh_api + '/' + gh_issue_id + '/comments';
+          fetch(gh_comments_url, {
+            headers: new Headers({
+              'Accept': 'application/vnd.github.v3.html+json',
+              'Content-Type': 'application/json'
+            }),
+            method: 'GET'
+          }).then((res) => {
+            if (res.status == 200) return res.json();
+            let error = new Error('HTTP Exception[GET]');
+            error.status = res.status;
+            error.statusText = res.statusText;
+            error.url = res.url;
+            throw error;
+          }).then((json) => {
+              gh_comments.insertAdjacentHTML('afterbegin', `<h2 class="major">GitHub评论</h3>
+                <p>请访问<a href="${gh_issue_url}">GitHub Issue</a>评论此文.</p>`);
+      
+              for (let comment of json) {
+                let date = new Date(comment.created_at);
+                let c = '<div class="gh-comment">' +
+                    `<h3 class="major"><img src="${comment.user.avatar_url}" width="24px"> ` +
+                    `<a href="${comment.user.html_url}">${comment.user.login}</a>` +
+                    '发表于' +
+                    `${date.toLocaleDateString()}` + ' ' + `${date.toLocaleTimeString()}</h3>` +
+                    comment.body_html +
+                    '</div>' + 
+                    '<hr>';
+                gh_comments.insertAdjacentHTML('beforeend', c);
+              }
+          }).catch((err) => {
+            gh_comments.insertAdjacentHTML('afterbegin', `<h3>GitHub Comments</h3>
+              <p>Comments are not open for this post yet</p>`);
+          });})(
+2);
+      </script>
 
-							</article>
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; D &amp; Q 出品</p>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
-
-	</body>
+  </body>
 </html>
