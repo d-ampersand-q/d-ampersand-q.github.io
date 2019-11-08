@@ -1,14 +1,19 @@
+import re
+
 def print_with_indent(indent, str):
   prefix = ''
   for i in range(indent):
     prefix = prefix + ' ' 
   strs = str.split('\n')
   for line in strs:
-    print(prefix + line)
+    if re.match('^\s*$', line):
+      print(prefix + '<br />')
+    else:
+      print(prefix + line)
 
 def process_code(str):
   result = '<pre><code>\n'
-  result = result + str.replace('<', '&lt;').replace('>', '&gt;') # TODO
+  result = result + str.replace('<', '&lt;').replace('>', '&gt;')
   result = result + '\n</code></pre>'
   return result
 
@@ -24,10 +29,8 @@ def generate_html(title, comment_id, summary, background_str, topic_str, section
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
   </head>
   <body class="is-preload">
-
     <!-- Wrapper -->
       <div id="wrapper">
-
         <!-- Header -->
           <header id="header">
             <div class="logo">
@@ -58,10 +61,8 @@ def generate_html(title, comment_id, summary, background_str, topic_str, section
               </ul>
             </nav>
           </header>
-
         <!-- Main -->
           <div id="main">
-
             <!-- Content -->
               <article id="content">""")
 
@@ -103,7 +104,6 @@ def generate_html(title, comment_id, summary, background_str, topic_str, section
       <script src="../assets/js/breakpoints.min.js"></script>
       <script src="../assets/js/util.js"></script>
       <script src="../assets/js/main.js"></script>
-
       <script type="text/javascript">
         (function (gh_issue_id){
           var gh_comments = document.getElementsByClassName('gh-comments')[0];
