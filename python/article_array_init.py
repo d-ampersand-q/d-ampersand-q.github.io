@@ -21,10 +21,6 @@ background_str = """\
 
 以上都希望是一个编译时的数组。"""
 
-topic_str = '相关主题：'
-for topic in topics:
-  topic_str = topic_str + '<a href="../index.html#topics">' + topic + '</a>'
-
 code_snippet = []
 sections = []
 
@@ -117,4 +113,4 @@ sections.append(('终极目标', ((0, process_code(code_snippet[4])),
                               (0, process_code(code_snippet[5])))))
 
 # generate
-generate_html(title, comment_id, summary, background_str, topic_str, sections)
+generate_html(title, comment_id, summary, topics, background_str, sections)

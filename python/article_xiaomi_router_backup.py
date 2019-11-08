@@ -20,10 +20,6 @@ background_str = """\
 <br />
 这样还有一个好处：1T的新硬盘可以当优盘在需要时连接到路由器上。不需要一直在线。兼顾存储空间和硬盘寿命。"""
 
-topic_str = '相关主题：'
-for topic in topics:
-  topic_str = topic_str + '<a href="../index.html#topics">' + topic + '</a>'
-
 code_snippet = []
 sections = []
 
@@ -116,4 +112,4 @@ temp = """\n\
 sections.append(('测试', ((18, temp), )))
 
 # generate
-generate_html(title, comment_id, summary, background_str, topic_str, sections)
+generate_html(title, comment_id, summary, topics, background_str, sections)

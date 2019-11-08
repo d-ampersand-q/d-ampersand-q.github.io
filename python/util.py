@@ -17,7 +17,11 @@ def process_code(str):
   result = result + '\n</code></pre>'
   return result
 
-def generate_html(title, comment_id, summary, background_str, topic_str, sections):
+def generate_html(title, comment_id, summary, topics, background_str, sections):
+  topic_str = '相关主题：'
+  for topic in topics:
+    topic_str = topic_str + '<a href="../index.html#topics">' + topic + '</a>'
+
   print_with_indent(0, """\
 <!DOCTYPE HTML>
 <html>
