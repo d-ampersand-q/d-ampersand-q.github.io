@@ -130,7 +130,6 @@ def generate_html(title, comment_id, summary, topics, background_str, sections):
           }).then((json) => {
               gh_comments.insertAdjacentHTML('afterbegin', `<h2 class="major">GitHub评论</h3>
                 <p>请访问<a href="${gh_issue_url}">GitHub Issue</a>评论此文.</p>`);
-      
               for (let comment of json) {
                 let date = new Date(comment.created_at);
                 let c = '<div class="gh-comment">' +
@@ -144,11 +143,9 @@ def generate_html(title, comment_id, summary, topics, background_str, sections):
                 gh_comments.insertAdjacentHTML('beforeend', c);
               }
           }).catch((err) => {
-            gh_comments.insertAdjacentHTML('afterbegin', `<h3>GitHub Comments</h3>
-              <p>Comments are not open for this post yet</p>`);
+            gh_comments.insertAdjacentHTML('afterbegin', '<h3>GitHub Comments</h3><p>Comments are not open for this post yet</p>');
           });})(""")
   print_with_indent(0, comment_id + """);
       </script>
-
   </body>
 </html>""")

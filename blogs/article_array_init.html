@@ -184,7 +184,6 @@ std::cout &lt;&lt; numbers_3[2];
           }).then((json) => {
               gh_comments.insertAdjacentHTML('afterbegin', `<h2 class="major">GitHub评论</h3>
                 <p>请访问<a href="${gh_issue_url}">GitHub Issue</a>评论此文.</p>`);
-<br />
               for (let comment of json) {
                 let date = new Date(comment.created_at);
                 let c = '<div class="gh-comment">' +
@@ -198,11 +197,9 @@ std::cout &lt;&lt; numbers_3[2];
                 gh_comments.insertAdjacentHTML('beforeend', c);
               }
           }).catch((err) => {
-            gh_comments.insertAdjacentHTML('afterbegin', `<h3>GitHub Comments</h3>
-              <p>Comments are not open for this post yet</p>`);
+            gh_comments.insertAdjacentHTML('afterbegin', '<h3>GitHub Comments</h3><p>Comments are not open for this post yet</p>');
           });})(
 1);
       </script>
-<br />
   </body>
 </html>
